@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ego-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_EXPIRATION
+        value: 86400000
+      - key: DDL_AUTO
+        value: update
+
+databases:
+  - name: ego-db
+    plan: free
